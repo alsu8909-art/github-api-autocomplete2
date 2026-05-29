@@ -1,0 +1,141 @@
+:root {
+  --bg: #f5faff;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #d1e9ff;
+  --accent: #a5d8ff;
+  --accent-dark: #60a5fa;
+  --shadow: 0 6px 20px rgba(120, 100, 180, 0.08);
+  --radius: 20px;
+  --transition: all 0.18s ease;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 520px;
+  height: 60px;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 2px 8px rgba(140, 130, 200, 0.06);
+  transition: var(--transition);
+  outline: none;
+  position: relative;
+  z-index: 1001;
+}
+
+#search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(199, 158, 255, 0.15);
+}
+
+#autocomplete-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: none;
+  position: absolute;
+  top: 170px;
+}
+
+#autocomplete-list li {
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 1px solid var(--border);
+}
+
+#autocomplete-list li:last-child {
+  border-bottom: none;
+}
+
+#autocomplete-list li:hover,
+#autocomplete-list li:focus,
+#autocomplete-list li.active {
+  background: white;
+  color: var(--accent-dark);
+}
+
+#repo-list {
+  list-style: none;
+  margin: 32px 0 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#repo-list li {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.repo-name {
+  margin: 0;
+  font-size: 1.24rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.repo-owner,
+.repo-stars {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.remove-btn {
+  border: solid rgb(168, 168, 255) 2px;
+  background-color: rgb(168, 168, 255);
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 5px;
+}
